@@ -2,9 +2,9 @@ package subject;
 
 import java.util.Scanner;
 
-public class Major_chooseSubject extends Subject {
+public class Liberal_artsSubject extends Subject {
 	
-	public Major_chooseSubject(SubjectKind kind) {
+	public Liberal_artsSubject(SubjectKind kind) {
 		super(kind);
 	}
 	

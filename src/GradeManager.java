@@ -1,5 +1,10 @@
 import java.util.ArrayList;
+
+import subject.Liberal_artsSubject;
+import subject.Major_chooseSubject;
 import subject.Subject;
+import subject.SubjectKind;
+
 import java.util.Scanner;
 import java.util.jar.Attributes.Name;
 
@@ -18,16 +23,23 @@ public class GradeManager {
 		while (kind != 1 && kind != 2) {
 			System.out.println("1 for Major_required");
 			System.out.println("2 for Major_choose");
-			System.out.println("Select number for subject kind between 1 and 2 : ");
+			System.out.println("3 for Liberal_arts");
+			System.out.print("Select number 1, 2, or 3 for subject kind : ");
 			kind = input.nextInt();
 			if(kind == 1) {
-				subject = new Subject();
+				subject = new Subject(SubjectKind.Major_required);
 				subject.getUserInput(input);
 				subjects.add(subject);
 				break;
 			}
 			else if(kind == 2) {
-				subject = new Subject();
+				subject = new Major_chooseSubject(SubjectKind.Major_choose);
+				subject.getUserInput(input);
+				subjects.add(subject);
+				break;
+			}
+			else if(kind == 3) {
+				subject = new Liberal_artsSubject(SubjectKind.Liberal_arts);
 				subject.getUserInput(input);
 				subjects.add(subject);
 				break;
