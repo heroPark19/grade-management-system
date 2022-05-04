@@ -2,14 +2,16 @@ import java.util.ArrayList;
 
 import subject.Liberal_artsSubject;
 import subject.Major_chooseSubject;
+import subject.Major_requiredSubject;
 import subject.Subject;
+import subject.SubjectInput;
 import subject.SubjectKind;
 
 import java.util.Scanner;
 import java.util.jar.Attributes.Name;
 
 public class GradeManager {
-	ArrayList<Subject> subjects = new ArrayList<Subject>();
+	ArrayList<SubjectInput> subjects = new ArrayList<SubjectInput>();
 	Subject subject;
 	Scanner input;
 	
@@ -19,7 +21,7 @@ public class GradeManager {
 	
 	public void addsubject() {
 		int kind = 0;
-		Subject subject;
+		SubjectInput subjectInput;
 		while (kind != 1 && kind != 2) {
 			System.out.println("1 for Major_required");
 			System.out.println("2 for Major_choose");
@@ -27,21 +29,21 @@ public class GradeManager {
 			System.out.print("Select number 1, 2, or 3 for subject kind : ");
 			kind = input.nextInt();
 			if(kind == 1) {
-				subject = new Subject(SubjectKind.Major_required);
-				subject.getUserInput(input);
-				subjects.add(subject);
+				subjectInput = new Major_requiredSubject(SubjectKind.Major_required);
+				subjectInput.getUserInput(input);
+				subjects.add(subjectInput);
 				break;
 			}
 			else if(kind == 2) {
-				subject = new Major_chooseSubject(SubjectKind.Major_choose);
-				subject.getUserInput(input);
-				subjects.add(subject);
+				subjectInput = new Major_chooseSubject(SubjectKind.Major_choose);
+				subjectInput.getUserInput(input);
+				subjects.add(subjectInput);
 				break;
 			}
 			else if(kind == 3) {
-				subject = new Liberal_artsSubject(SubjectKind.Liberal_arts);
-				subject.getUserInput(input);
-				subjects.add(subject);
+				subjectInput = new Liberal_artsSubject(SubjectKind.Liberal_arts);
+				subjectInput.getUserInput(input);
+				subjects.add(subjectInput);
 				break;
 			}
 			else {
@@ -74,8 +76,8 @@ public class GradeManager {
 		System.out.print("Subject name : ");
 		String subjectname = input.next();
 		for(int i = 0; i<subjects.size(); i++) {
-			Subject subject = subjects.get(i);
-			if (subject.getName().equals(subject.getName()));{
+			SubjectInput subjectInput = subjects.get(i);
+			if (subjectInput.getName().equals(subjectInput.getName()));{
 				int num = -1;
 				while(num != 3) {
 					System.out.println("** subject info Edit Menu**");
@@ -87,12 +89,12 @@ public class GradeManager {
 					if (num == 1) {
 						System.out.print("Subject name : ");
 						String name = input.next();
-						subject.setName(name);
+						subjectInput.setName(name);
 					}
 					else if(num == 2) {
 						System.out.print("Subject grade : ");
 						double grade = input.nextDouble();
-						subject.setGrade(grade);
+						subjectInput.setGrade(grade);
 					}
 					else {
 						continue;

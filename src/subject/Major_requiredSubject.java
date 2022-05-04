@@ -2,9 +2,9 @@ package subject;
 
 import java.util.Scanner;
 
-public class Major_chooseSubject extends Subject implements SubjectInput{
+public class Major_requiredSubject extends Subject implements SubjectInput{
 	
-	public Major_chooseSubject(SubjectKind kind) {
+	public Major_requiredSubject(SubjectKind kind) {
 		super(kind);
 	}
 	

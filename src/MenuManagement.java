@@ -11,11 +11,11 @@ public class MenuManagement {
 		
 		
 		while(num != 5){
-		System.out.println("1.Add subject.");
-		System.out.println("2.Delete subject.");
-		System.out.println("3.Edit subject.");
-		System.out.println("4.View subjects.");
-		System.out.println("5.Exist.");
+		System.out.println("1.Add subject");
+		System.out.println("2.Delete subject");
+		System.out.println("3.Edit subject");
+		System.out.println("4.View subjects");
+		System.out.println("5.Exist");
 		
 		System.out.print("Selcet a number : ");
 		num = input.nextInt();
@@ -32,7 +32,7 @@ public class MenuManagement {
 		else if(num==4) {
 			gradeManager.Viewsubjects();
 		}
-		}
+	    }
 	}
 	
 }
