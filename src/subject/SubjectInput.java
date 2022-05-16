@@ -13,5 +13,8 @@ public interface SubjectInput {
 	public void printInfo();
 	
 	public void getUserInput(Scanner input);
-
+	
+	public void setSubjectName(Scanner input);
+	
+	public void setSubjectGrade(Scanner input);
 }

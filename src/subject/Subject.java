@@ -2,7 +2,7 @@ package subject;
 
 import java.util.Scanner;
 
-public abstract class Subject {
+public abstract class Subject implements SubjectInput{
 
 	protected String name;
 	protected double grade;
@@ -48,4 +48,34 @@ public abstract class Subject {
 	}
 		
 	public abstract void printInfo();
+	
+	public void setSubjectName(Scanner input) {
+		System.out.print("Subject name : ");
+		String name = input.next();
+		this.setName(name);
+	}
+	
+	public void setSubjectGrade(Scanner input) {
+		System.out.print("Subject grade : ");
+		double grade = input.nextDouble();
+		this.setGrade(grade);
+	}
+	
+	public String getKindString() {
+		String skind = "none";
+		switch(this.kind) {
+		case Major_required :
+			skind = "Major_req.";
+			break;			
+		case Major_choose :
+			skind = "Major_cho.";
+			break;			
+		case Liberal_arts :
+			skind = "Lib._arts";
+			break;		
+		default:		
+		}
+		return skind;
+	}
+	
 }
