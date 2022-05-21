@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import subject.Liberal_artsSubject;
@@ -9,10 +10,15 @@ import subject.SubjectKind;
 import java.util.Scanner;
 import java.util.jar.Attributes.Name;
 
-public class GradeManager {
+public class GradeManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1812500366393635981L;
+	
 	ArrayList<SubjectInput> subjects = new ArrayList<SubjectInput>();
 	Subject subject;
-	Scanner input;
+	transient Scanner input;
 	
 	GradeManager(Scanner input){
 		this.input = input;
@@ -47,7 +53,7 @@ public class GradeManager {
 				    break;
 		    	}
 			    else {
-				    System.out.println("Select number for subject kind between 1 and 2 : ");
+				    System.out.println("Select number for subject kind between 1 and 3 : ");
 			    }
 			}
 			catch(InputMismatchException e) {
@@ -92,7 +98,8 @@ public class GradeManager {
 	public void Editsubjects() {
 		System.out.print("Subject name : ");
 		String subjectname = input.next();
-		for(int i = 0; i<subjects.size(); i++) {
+		try {
+			for(int i = 0; i<subjects.size(); i++) {
 			SubjectInput subject = subjects.get(i);
 			if (subject.getName().equals(subject.getName())){
 				int num = -1;
@@ -107,12 +114,20 @@ public class GradeManager {
 						subject.setSubjectGrade(input);
 						break;
 					default:
+						System.out.println("Please put an integer between 1 and 3.");
 						continue;
 					}
 				}
 				break;
 		    } 
 		}
+		}catch(InputMismatchException e){
+			System.out.println("Please put an integer between 1 and 3.");
+      	    if(input.hasNext()) {
+      		    input.next();
+      	    }
+		}
+		
 	}
 	
 	public void Viewsubjects() {
@@ -127,6 +142,6 @@ public class GradeManager {
 		System.out.println("1. Edit name");
 		System.out.println("2. Edit grade");
 		System.out.println("3. Exit");
-		System.out.println("Select ont number between 1-3 : ");
+		System.out.println("Select one number between 1-3 : ");
 	}
 }

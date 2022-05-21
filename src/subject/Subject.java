@@ -1,9 +1,15 @@
 package subject;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public abstract class Subject implements SubjectInput{
+public abstract class Subject implements SubjectInput, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4413925186067562047L;
+	
 	protected String name;
 	protected double grade;
 	protected SubjectKind kind = SubjectKind.Major_required;
