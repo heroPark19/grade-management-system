@@ -7,10 +7,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MenuSelection extends JFrame{
-	public MenuSelection() {
-		this.setSize(300, 300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+import listeners.ButtonAddListener;
+import listeners.ButtonViewListener;
+
+public class MenuSelection extends JPanel{
+	
+	WindowFrame frame;
+	
+	public MenuSelection(WindowFrame frame) {
+		this.frame = frame;
+		
+		this.setLayout(new BorderLayout());
 				
 		JPanel panel1 = new JPanel();
 		JPanel panel2 = new JPanel();
@@ -20,6 +27,9 @@ public class MenuSelection extends JFrame{
 		JButton button3 = new JButton("Edit subject");
 		JButton button4 = new JButton("View subject");
 		JButton button5 = new JButton("Exit program");
+		
+		button4.addActionListener(new ButtonViewListener(frame));
+		button1.addActionListener(new ButtonAddListener(frame));
 		
 		panel1.add(label);
 		panel2.add(button1);
@@ -31,7 +41,6 @@ public class MenuSelection extends JFrame{
 //		this.setContentPane(panel); //전체 판을 패널로 설정해주는것. 
 		this.add(panel1, BorderLayout.NORTH);
 		this.add(panel2, BorderLayout.CENTER);
-		this.setVisible(true);
 	}
 
 }
