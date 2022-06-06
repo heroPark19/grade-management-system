@@ -10,6 +10,8 @@ public interface SubjectInput {
 	
 	public void setGrade(double grade);
 	
+	public double getGrade();
+	
 	public void printInfo();
 	
 	public void getUserInput(Scanner input);
@@ -17,4 +19,5 @@ public interface SubjectInput {
 	public void setSubjectName(Scanner input);
 	
 	public void setSubjectGrade(Scanner input);
+
 }

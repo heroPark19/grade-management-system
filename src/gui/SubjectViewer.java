@@ -1,5 +1,7 @@
 package gui;
 
+import java.util.Vector;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -8,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
 import manage.GradeManager;
+import subject.SubjectInput;
 
 public class SubjectViewer extends JPanel{
 	
@@ -24,6 +27,13 @@ public class SubjectViewer extends JPanel{
 		DefaultTableModel model = new DefaultTableModel();
 		model.addColumn("name");
 	    model.addColumn("grade");
+	    
+	    for(int i=0; i<gradeManager.size(); i++) {
+	    	Vector row = new Vector();
+	    	SubjectInput si = gradeManager.get(i);
+	    	row.add(si.getName());
+	    	row.add(si.getGrade());
+	    }
 		
 		JTable table = new JTable(model);
 		JScrollPane sp = new JScrollPane(table);

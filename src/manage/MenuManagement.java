@@ -17,14 +17,14 @@ public class MenuManagement {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		GradeManager gradeManager = getObject("grademanager.ser");
+		GradeManager gradeManager = getObject("grademanager");
 		if(gradeManager == null) {
 			gradeManager = new GradeManager(input);
 		}
 		 
 		WindowFrame frame = new WindowFrame(gradeManager);
 		selectMenu(input, gradeManager);
-		putObject(gradeManager, "grademanager.ser");
+		putObject(gradeManager, "grademanager");
 	}
 		
 	public static void selectMenu(Scanner input, GradeManager gradeManager) {

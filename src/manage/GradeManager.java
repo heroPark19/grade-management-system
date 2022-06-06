@@ -142,6 +142,10 @@ public class GradeManager implements Serializable{
 		return subjects.size();
 	}
 	
+	public SubjectInput get(int index) {
+		return (Subject) subjects.get(index);
+	}
+	
 	public void showEditMenu() {
 		System.out.println("** subject info Edit Menu**");
 		System.out.println("1. Edit name");
