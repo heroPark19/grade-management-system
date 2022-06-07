@@ -33,6 +33,7 @@ public class SubjectViewer extends JPanel{
 	    	SubjectInput si = gradeManager.get(i);
 	    	row.add(si.getName());
 	    	row.add(si.getGrade());
+	    	model.addRow(row);
 	    }
 		
 		JTable table = new JTable(model);
