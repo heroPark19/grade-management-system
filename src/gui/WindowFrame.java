@@ -18,9 +18,9 @@ public class WindowFrame extends JFrame{
 		this.setTitle("My Frame");
 		
 		this.gradeManager = gradeManager;
-		this.menuselection = new MenuSelection(this);
-        this.subjectadder = new SubjectAdder(this);
-		this.subjectviewer = new SubjectViewer(this, this.gradeManager);
+		menuselection = new MenuSelection(this);
+        subjectadder = new SubjectAdder(this, this.gradeManager);
+		subjectviewer = new SubjectViewer(this, this.gradeManager);
 		
 
 		
